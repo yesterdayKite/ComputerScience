@@ -12,10 +12,10 @@
   */
 struct inst_unit
 {
-	char str[10];
-	unsigned char op;
-	int format;
-	int ops;
+    char str[10];
+    unsigned char op;
+    int format;
+    int ops;
 };
 typedef struct inst_unit inst;
 inst* inst_table[MAX_INST];
@@ -33,12 +33,12 @@ static int line_num;
  */
 struct token_unit
 {
-	char* label;
-	char* operator;
-	char* operand[MAX_OPERAND]; //////////////////////ㄷㅏ름
-	char comment[100];
-	// 다음과제에 사용될 변수
-	// char nixbpe;
+    char* label;
+    char* operator;
+    char* operand[MAX_OPERAND];
+    char comment[100];
+    char nixbpe;
+    int    operand_num; // operand의 갯수
 };
 
 typedef struct token_unit token;
@@ -52,8 +52,8 @@ static int token_line;
  */
 struct symbol_unit
 {
-	char symbol[10];
-	int addr;
+    char symbol[10];
+    int addr;
 };
 
 /*
@@ -62,8 +62,8 @@ struct symbol_unit
 * 추후 과제에 사용 예정
 */
 struct literal_unit {
-	char* literal;
-	int addr;
+    char* literal;
+    int addr;
 };
 
 typedef struct symbol_unit symbol;
@@ -88,3 +88,7 @@ void make_opcode_output(char* file_name);
 void make_symtab_output(char* file_name);
 static int assem_pass2(void);
 void make_objectcode_output(char* file_name);
+
+
+
+
